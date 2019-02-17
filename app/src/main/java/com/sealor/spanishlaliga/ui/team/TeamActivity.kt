@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.base.BaseActivity
 import com.sealor.spanishlaliga.databinding.ActivityTeamBinding
-import com.sealor.spanishlaliga.model.EventsResponse
 import com.sealor.spanishlaliga.model.TeamsResponse
 
 class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {

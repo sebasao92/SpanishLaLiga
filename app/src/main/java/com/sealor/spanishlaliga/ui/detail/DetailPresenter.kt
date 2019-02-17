@@ -1,33 +1,33 @@
-package com.sealor.spanishlaliga.ui.team
+package com.sealor.spanishlaliga.ui.detail
 
 import com.sealor.spanishlaliga.R
+import com.sealor.spanishlaliga.base.BasePresenter
+import com.sealor.spanishlaliga.network.TeamApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import com.sealor.spanishlaliga.base.BasePresenter
-import com.sealor.spanishlaliga.network.TeamApi
 import javax.inject.Inject
 
-class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
+class DetailPresenter(detailView : DetailView) : BasePresenter<DetailView>(detailView) {
 
     @Inject
     lateinit var teamApi : TeamApi
 
     private var subscription : Disposable? = null
 
-    override fun onViewCreated(){
-        loadTeams()
+    fun onViewCreated(idTeam: Int) {
+        loadEvents(idTeam)
     }
 
-    private fun loadTeams(){
+    private fun loadEvents(idTeam : Int){
         view.showLoading()
         subscription = teamApi
-            .getTeams()
+            .getEvents(idTeam)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .doOnTerminate {view.hideLoading()}
             .subscribe(
-                {teamList -> view.updateTeams(teamList)},
+                {eventList -> view.updateEvents(eventList)},
                 {view.showError(R.string.unknown_error)}
             )
     }

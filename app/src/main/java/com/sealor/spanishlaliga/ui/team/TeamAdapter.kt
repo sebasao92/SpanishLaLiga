@@ -8,14 +8,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.databinding.ItemTeamBinding
-import com.sealor.spanishlaliga.model.Event
 import com.sealor.spanishlaliga.model.Team
-import com.sealor.spanishlaliga.network.TeamApi
+import com.sealor.spanishlaliga.ui.detail.DetailActivity
 import com.squareup.picasso.Picasso
-import javax.inject.Inject
 
 class TeamAdapter(private val context: Context) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
 

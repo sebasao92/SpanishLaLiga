@@ -1,28 +1,34 @@
-package com.sealor.spanishlaliga.ui.team
+package com.sealor.spanishlaliga.ui.detail
 
 import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.sealor.spanishlaliga.R
-import com.sealor.spanishlaliga.model.Event
+import com.sealor.spanishlaliga.base.BaseActivity
+import com.sealor.spanishlaliga.databinding.TeamDetailsBinding
+import com.sealor.spanishlaliga.model.EventsResponse
 import com.sealor.spanishlaliga.model.Team
 import com.sealor.spanishlaliga.utils.UrlFixer
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.team_details.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
 
     private lateinit var team : Team
-    private lateinit var events : List<Event>
+    private lateinit var binding : TeamDetailsBinding
+    private val detailAdapter = DetailAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //binding = DataBindingUtil.setContentView(this, R.layout.team_details)
         setContentView(R.layout.team_details)
         getIncomingIntent()
+        //presenter.onViewCreated(team.idTeam.toInt())
         setTeamDetails()
         clickOnFacebook()
         clickOnInstagram()
@@ -33,6 +39,18 @@ class DetailActivity : AppCompatActivity() {
 
     private fun getIncomingIntent(){
         team = intent.getSerializableExtra("Team") as Team
+    }
+
+    override fun showError(error : String) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT)
+    }
+
+    override fun updateEvents(events: EventsResponse) {
+        null
+    }
+
+    override fun instantiatePresenter(): DetailPresenter {
+        return DetailPresenter(this)
     }
 
     private fun setSocialMedia(){
@@ -92,5 +110,13 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
             startActivity(intent)
         }
+    }
+
+    override fun hideLoading() {
+        null
+    }
+
+    override fun showLoading() {
+        null
     }
 }
