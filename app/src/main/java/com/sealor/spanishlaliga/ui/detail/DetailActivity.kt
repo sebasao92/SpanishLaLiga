@@ -4,6 +4,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +12,7 @@ import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.base.BaseActivity
 import com.sealor.spanishlaliga.databinding.TeamDetailsBinding
+import com.sealor.spanishlaliga.model.Event
 import com.sealor.spanishlaliga.model.EventsResponse
 import com.sealor.spanishlaliga.model.Team
 import com.sealor.spanishlaliga.utils.UrlFixer
@@ -25,16 +27,26 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = DataBindingUtil.setContentView(this, R.layout.team_details)
         setContentView(R.layout.team_details)
+        binding = DataBindingUtil.setContentView(this, R.layout.team_details)
         getIncomingIntent()
-        //presenter.onViewCreated(team.idTeam.toInt())
+        presenter.onViewCreated(team.idTeam.toInt())
+        //clickOnFacebook()
+        //clickOnInstagram()
+        //clickOnYoutube()
+        //clickOnWebsite()
+        //clickOnTwitter()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onViewDestroyed()
+    }
+
+    override fun onResume() {
+        super.onResume()
         setTeamDetails()
-        clickOnFacebook()
-        clickOnInstagram()
-        clickOnYoutube()
-        clickOnWebsite()
-        clickOnTwitter()
+        Log.i("ONSTART", "ENTRE")
     }
 
     private fun getIncomingIntent(){
@@ -46,7 +58,12 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     }
 
     override fun updateEvents(events: EventsResponse) {
-        null
+        detailAdapter.updateEvents(events.events)
+        var eventsString = ""
+        for(event in detailAdapter.getEvents())
+            eventsString = eventsString.plus(event.strEvent.plus(" --- ").plus(event.dateEvent).plus('\n'))
+
+        this.team_events_detail.text = eventsString
     }
 
     override fun instantiatePresenter(): DetailPresenter {

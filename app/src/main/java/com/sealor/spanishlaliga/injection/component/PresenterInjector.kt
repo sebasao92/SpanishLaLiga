@@ -5,6 +5,7 @@ import dagger.Component
 import com.sealor.spanishlaliga.base.BaseView
 import com.sealor.spanishlaliga.injection.module.ContextModule
 import com.sealor.spanishlaliga.injection.module.NetworkModule
+import com.sealor.spanishlaliga.ui.detail.DetailPresenter
 import com.sealor.spanishlaliga.ui.team.TeamPresenter
 import javax.inject.Singleton
 
@@ -14,6 +15,8 @@ import javax.inject.Singleton
 interface PresenterInjector {
 
     fun inject(teamPresenter: TeamPresenter)
+
+    fun inject(detailPresenter: DetailPresenter)
 
     @Component.Builder
     interface Builder{

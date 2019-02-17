@@ -4,8 +4,6 @@ package com.sealor.spanishlaliga.utils
 import android.databinding.BindingAdapter
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
-import android.widget.RelativeLayout
-import com.sealor.spanishlaliga.ui.detail.DetailAdapter
 import com.sealor.spanishlaliga.ui.team.TeamAdapter
 
 
