@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.os.Handler
-import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.ui.team.TeamActivity
+import com.sealor.spanishlaliga.utils.SPLASH_DELAY
 
 class SplashActivity : AppCompatActivity() {
 
     private var delayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {

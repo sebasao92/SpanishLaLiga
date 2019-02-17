@@ -8,7 +8,6 @@ import retrofit2.http.Query
 
 interface TeamApi {
 
-    //4335
     @GET("lookup_all_teams.php")
     fun getTeams(@Query("id") id : Int): Observable<TeamsResponse>
 

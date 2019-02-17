@@ -1,5 +1,6 @@
 package com.sealor.spanishlaliga.ui.team
 
+import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -20,16 +21,20 @@ class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
     }
 
     private fun loadTeams(id : Int){
-        view.showLoading()
-        subscription = teamApi
-            .getTeams(id)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .doOnTerminate {view.hideLoading()}
-            .subscribe(
-                {teamList -> view.updateTeams(teamList)},
-                {view.showError(R.string.unknown_error)}
-            )
+        try {
+            view.showLoading()
+            subscription = teamApi
+                .getTeams(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .doOnTerminate {view.hideLoading()}
+                .subscribe(
+                    {teamList -> view.updateTeams(teamList)},
+                    {view.showError(R.string.unknown_error)}
+                )
+        } catch(t : Throwable){
+            Toast.makeText(view.getContext(), "An error has occurred getting teams", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onViewDestroyed(){

@@ -4,22 +4,20 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.speech.tts.TextToSpeech
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.base.BaseActivity
 import com.sealor.spanishlaliga.databinding.TeamDetailsBinding
-import com.sealor.spanishlaliga.model.Event
 import com.sealor.spanishlaliga.model.EventsResponse
 import com.sealor.spanishlaliga.model.Team
 import com.sealor.spanishlaliga.utils.UrlFixer
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.team_details.*
 
+@Suppress("unused")
 class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
 
     private lateinit var team : Team
@@ -42,13 +40,13 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     override fun instantiatePresenter(): DetailPresenter {
         return DetailPresenter(this)
     }
-    
+
     private fun getIncomingIntent(){
         team = intent.getSerializableExtra("Team") as Team
     }
 
     override fun showError(error : String) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT)
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
     override fun updateEvents(events: EventsResponse) {
@@ -80,32 +78,32 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     }
 
     fun clickOnFacebook(view: View){
-        callUrl(view, team.strFacebook as String, R.id.facebook_button)
+        callUrl(view, team.strFacebook as String)
     }
 
     fun clickOnYoutube(view: View){
-        callUrl(view, team.strYoutube as String, R.id.youtube_button)
+        callUrl(view,team.strYoutube as String)
     }
 
     fun clickOnWebsite(view: View){
-        callUrl(view, team.strWebsite as String, R.id.website_button)
+        callUrl(view,team.strWebsite as String)
     }
 
     fun clickOnInstagram(view: View){
-        callUrl(view, team.strInstagram as String, R.id.instagram_button)
+        callUrl(view, team.strInstagram as String)
     }
 
     fun clickOnTwitter(view: View){
-        callUrl(view, team.strTwitter as String, R.id.twitter_button)
+        callUrl(view,team.strTwitter as String)
     }
 
-    private fun callUrl(view: View, url : String, buttonId : Int){
-        val button : Button = view.findViewById(buttonId)
-        button.setOnClickListener {
+    private fun callUrl(view: View, url : String){
+        try{
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(url)))
             startActivity(intent)
+        } catch (t : Throwable){
+            Toast.makeText(view.context, "Error al llamar la URL", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     override fun hideLoading() {
