@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -31,11 +32,6 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
         binding = DataBindingUtil.setContentView(this, R.layout.team_details)
         getIncomingIntent()
         presenter.onViewCreated(team.idTeam.toInt())
-        //clickOnFacebook()
-        //clickOnInstagram()
-        //clickOnYoutube()
-        //clickOnWebsite()
-        //clickOnTwitter()
     }
 
     override fun onDestroy() {
@@ -71,11 +67,11 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     }
 
     private fun setSocialMedia(){
-        if(team.strYoutube != "") this.youtube_text.visibility = View.VISIBLE
-        if(team.strFacebook != "") this.facebook_text.visibility = View.VISIBLE
-        if(team.strInstagram != "") this.instagram_text.visibility = View.VISIBLE
-        if(team.strWebsite != "") this.website_text.visibility = View.VISIBLE
-        if(team.strTwitter != "") this.twitter_text.visibility = View.VISIBLE
+        if(team.strYoutube != "") this.youtube_button.visibility = View.VISIBLE
+        if(team.strFacebook != "") this.facebook_button.visibility = View.VISIBLE
+        if(team.strInstagram != "") this.instagram_button.visibility = View.VISIBLE
+        if(team.strWebsite != "") this.website_button.visibility = View.VISIBLE
+        if(team.strTwitter != "") this.twitter_button.visibility = View.VISIBLE
     }
 
     private fun setTeamDetails(){
@@ -89,44 +85,38 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
         setSocialMedia()
     }
 
-    fun clickOnFacebook(){
-        val facebookText : TextView = this.findViewById(R.id.facebook_text)
-        facebookText.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
-            startActivity(intent)
-        }
+    fun clickOnFacebook(view: View){
+        Log.i("FACEBOOK", UrlFixer.fixUrl(team.strFacebook as String))
+        callUrl(view, team.strFacebook as String, R.id.facebook_button)
     }
 
-    fun clickOnYoutube(){
-        val youtubeText : TextView = this.findViewById(R.id.facebook_text)
-        youtubeText.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
-            startActivity(intent)
-        }
+    fun clickOnYoutube(view: View){
+        Log.i("YOUTUBE", UrlFixer.fixUrl(team.strYoutube as String))
+        callUrl(view, team.strYoutube as String, R.id.youtube_button)
     }
 
-    fun clickOnWebsite(){
-        val websiteText : TextView = this.findViewById(R.id.facebook_text)
-        websiteText.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
-            startActivity(intent)
-        }
+    fun clickOnWebsite(view: View){
+        Log.i("WEB", UrlFixer.fixUrl(team.strWebsite as String))
+        callUrl(view, team.strWebsite as String, R.id.website_button)
     }
 
-    fun clickOnInstagram(){
-        val instagramText : TextView = this.findViewById(R.id.facebook_text)
-        instagramText.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
-            startActivity(intent)
-        }
+    fun clickOnInstagram(view: View){
+        Log.i("INSTAGRAM", UrlFixer.fixUrl(team.strInstagram as String))
+        callUrl(view, team.strInstagram as String, R.id.instagram_button)
     }
 
-    fun clickOnTwitter(){
-        val twitterText : TextView = this.findViewById(R.id.facebook_text)
-        twitterText.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(team.strFacebook as String)))
+    fun clickOnTwitter(view: View){
+        Log.i("TWITTER", UrlFixer.fixUrl(team.strTwitter as String))
+        callUrl(view, team.strTwitter as String, R.id.twitter_button)
+    }
+
+    private fun callUrl(view: View, url : String, buttonId : Int){
+        val button : Button = view.findViewById(buttonId)
+        button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UrlFixer.fixUrl(url)))
             startActivity(intent)
         }
+
     }
 
     override fun hideLoading() {

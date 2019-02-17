@@ -13,5 +13,5 @@ data class Team( val idTeam : String,
                  val strDescriptionEN : String?,
                  val strTeamBadge : String?,
                  val strTeamJersey : String?,
-                 val strYoutube : String
+                 val strYoutube : String?
                 ):Serializable

@@ -5,9 +5,9 @@ class UrlFixer {
     companion object {
         fun fixUrl(url : String) : String{
 
-            var newUrl : String = url;
-            if(!url.startsWith("www.")) newUrl = "www.".plus(url)
-            if(!url.startsWith("http://") || !url.startsWith("https://")) newUrl = "http://".plus(url)
+            var newUrl : String = url
+            if(!newUrl.startsWith("www.")) newUrl = "www.".plus(newUrl)
+            if(!newUrl.startsWith("http://") || !url.startsWith("https://")) newUrl = "http://".plus(newUrl)
 
             return newUrl
         }

@@ -116,7 +116,7 @@
                         android:onClick="clickOnFacebook"
                         android:visibility="invisible"
                         android:textStyle="bold"
-                        android:id="@+id/facebook_text"/>
+                        android:id="@+id/facebook_button"/>
 
                 <Button
                         android:text="@string/instagram"
@@ -126,7 +126,7 @@
                         android:onClick="clickOnInstagram"
                         android:visibility="invisible"
                         android:textStyle="bold"
-                        android:id="@+id/instagram_text"/>
+                        android:id="@+id/instagram_button"/>
 
                 <Button
                         android:text="@string/youtube"
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:visibility="invisible"
                         android:textStyle="bold"
-                        android:id="@+id/youtube_text" />
+                        android:id="@+id/youtube_button" />
 
                 <Button
                         android:text="@string/website"
@@ -146,7 +146,7 @@
                         android:visibility="invisible"
                         android:textStyle="bold"
                         android:onClick="clickOnWebsite"
-                        android:id="@+id/website_text" />
+                        android:id="@+id/website_button" />
 
                 <Button
                         android:text="@string/twitter"
@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:visibility="invisible"
                         android:textStyle="bold"
-                        android:id="@+id/twitter_text" />
+                        android:id="@+id/twitter_button" />
             </LinearLayout>
 
         </LinearLayout>
