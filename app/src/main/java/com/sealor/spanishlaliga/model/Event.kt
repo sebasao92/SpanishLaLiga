@@ -1,7 +1,8 @@
 package com.sealor.spanishlaliga.model
 
-import java.io.Serializable
-
+/*
+ * Receives information about just one event
+ */
 data class Event(val strEvent : String,
                  val dateEvent: String
-                 ) : Serializable
+                 )

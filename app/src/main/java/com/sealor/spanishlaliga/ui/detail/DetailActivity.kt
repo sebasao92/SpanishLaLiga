@@ -28,10 +28,10 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.team_details)
         binding = DataBindingUtil.setContentView(this, R.layout.team_details)
         getIncomingIntent()
         presenter.onViewCreated(team.idTeam.toInt())
+        setTeamDetails()
     }
 
     override fun onDestroy() {
@@ -39,12 +39,10 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
         presenter.onViewDestroyed()
     }
 
-    override fun onResume() {
-        super.onResume()
-        setTeamDetails()
-        Log.i("ONSTART", "ENTRE")
+    override fun instantiatePresenter(): DetailPresenter {
+        return DetailPresenter(this)
     }
-
+    
     private fun getIncomingIntent(){
         team = intent.getSerializableExtra("Team") as Team
     }
@@ -60,10 +58,6 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
             eventsString = eventsString.plus(event.strEvent.plus(" --- ").plus(event.dateEvent).plus('\n'))
 
         this.team_events_detail.text = eventsString
-    }
-
-    override fun instantiatePresenter(): DetailPresenter {
-        return DetailPresenter(this)
     }
 
     private fun setSocialMedia(){
@@ -86,27 +80,22 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     }
 
     fun clickOnFacebook(view: View){
-        Log.i("FACEBOOK", UrlFixer.fixUrl(team.strFacebook as String))
         callUrl(view, team.strFacebook as String, R.id.facebook_button)
     }
 
     fun clickOnYoutube(view: View){
-        Log.i("YOUTUBE", UrlFixer.fixUrl(team.strYoutube as String))
         callUrl(view, team.strYoutube as String, R.id.youtube_button)
     }
 
     fun clickOnWebsite(view: View){
-        Log.i("WEB", UrlFixer.fixUrl(team.strWebsite as String))
         callUrl(view, team.strWebsite as String, R.id.website_button)
     }
 
     fun clickOnInstagram(view: View){
-        Log.i("INSTAGRAM", UrlFixer.fixUrl(team.strInstagram as String))
         callUrl(view, team.strInstagram as String, R.id.instagram_button)
     }
 
     fun clickOnTwitter(view: View){
-        Log.i("TWITTER", UrlFixer.fixUrl(team.strTwitter as String))
         callUrl(view, team.strTwitter as String, R.id.twitter_button)
     }
 
@@ -120,10 +109,10 @@ class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
     }
 
     override fun hideLoading() {
-        null
+        binding.progressVisibility = View.GONE
     }
 
     override fun showLoading() {
-        null
+        binding.progressVisibility = View.VISIBLE
     }
 }

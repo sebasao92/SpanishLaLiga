@@ -14,4 +14,6 @@
     <string name="youtube">Youtube</string>
     <string name="twitter">Twitter</string>
     <string name="website">Website</string>
+    <string name="badge_description">It is the team badge</string>
+    <string name="jersey_description">It is the team jersey</string>
 </resources>

@@ -10,6 +10,11 @@
 
         <variable name="event"
                   type="com.sealor.spanishlaliga.model.Event"/>
+
+        <variable
+                name="progressVisibility"
+                type="Integer" />
+
     </data>
 
     <ScrollView
@@ -22,29 +27,40 @@
             app:layout_constraintLeft_toLeftOf="parent">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="top|center">
+
+            <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                     android:text="@string/team_badge"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:id="@+id/textView5"/>
 
             <ImageView
                     android:id="@+id/detail_badge"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:contentDescription="@string/badge_description"
                     app:srcCompat="@mipmap/ic_launcher"/>
 
             <TextView
                     android:text="@string/team_jersey"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -52,12 +68,13 @@
                     android:id="@+id/detail_jersey"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
+                    android:contentDescription="@string/jersey_description"
                     app:srcCompat="@mipmap/ic_launcher"/>
 
             <TextView
                     android:text="@string/team_text"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -69,7 +86,7 @@
             <TextView
                     android:text="@string/team_description"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -81,7 +98,7 @@
             <TextView
                     android:text="@string/team_year"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -93,7 +110,7 @@
             <TextView
                     android:text="@string/team_events"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3"/>
@@ -110,7 +127,7 @@
 
                 <Button
                         android:text="@string/facebook"
-                        android:textSize="8dp"
+                        android:textSize="8sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="clickOnFacebook"
@@ -120,7 +137,7 @@
 
                 <Button
                         android:text="@string/instagram"
-                        android:textSize="8dp"
+                        android:textSize="8sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="clickOnInstagram"
@@ -131,7 +148,7 @@
                 <Button
                         android:text="@string/youtube"
                         android:onClick="clickOnYoutube"
-                        android:textSize="8dp"
+                        android:textSize="8sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="invisible"
@@ -140,7 +157,7 @@
 
                 <Button
                         android:text="@string/website"
-                        android:textSize="8dp"
+                        android:textSize="8sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="invisible"
@@ -151,7 +168,7 @@
                 <Button
                         android:text="@string/twitter"
                         android:onClick="clickOnTwitter"
-                        android:textSize="8dp"
+                        android:textSize="8sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="invisible"

@@ -15,14 +15,14 @@ class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
 
     private var subscription : Disposable? = null
 
-    override fun onViewCreated(){
-        loadTeams()
+    override fun onViewCreated(id : Int){
+        loadTeams(id)
     }
 
-    private fun loadTeams(){
+    private fun loadTeams(id : Int){
         view.showLoading()
         subscription = teamApi
-            .getTeams()
+            .getTeams(id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .doOnTerminate {view.hideLoading()}

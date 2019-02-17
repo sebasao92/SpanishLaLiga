@@ -9,6 +9,7 @@ import dagger.Provides
 @Module
 @Suppress("unused")
 object ContextModule {
+
     @Provides
     @JvmStatic
     internal fun provideContext(baseView : BaseView) : Context {

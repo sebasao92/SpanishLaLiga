@@ -15,8 +15,8 @@ class DetailPresenter(detailView : DetailView) : BasePresenter<DetailView>(detai
 
     private var subscription : Disposable? = null
 
-    fun onViewCreated(idTeam: Int) {
-        loadEvents(idTeam)
+    override fun onViewCreated(id : Int) {
+        loadEvents(id)
     }
 
     private fun loadEvents(idTeam : Int){

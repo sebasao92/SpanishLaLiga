@@ -10,6 +10,10 @@ import com.sealor.spanishlaliga.ui.team.TeamPresenter
 
 abstract class BasePresenter<out V : BaseView>(protected val view : V) {
 
+    open fun onViewCreated(id : Int){}
+
+    open fun onViewDestroyed(){}
+
     private val injector : PresenterInjector = DaggerPresenterInjector
         .builder()
         .baseView(view)
@@ -20,10 +24,6 @@ abstract class BasePresenter<out V : BaseView>(protected val view : V) {
     init{
         inject()
     }
-
-    open fun onViewCreated(){}
-
-    open fun onViewDestroyed(){}
 
     private fun inject(){
         when(this){

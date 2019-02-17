@@ -38,11 +38,8 @@ class TeamAdapter(private val context: Context) : RecyclerView.Adapter<TeamAdapt
         holder.bind(teams[position])
 
         holder.parentLayout.setOnClickListener {
-            //Toast.makeText(context,"HOLIIIII".plus(events[0].dateEvent),Toast.LENGTH_LONG).show()
             val intent = Intent(context , DetailActivity::class.java)
             intent.putExtra("Team", teams[position])
-            //getEventsById(teams[position].idTeam)
-            //intent.putExtra("Events", getEventsById(teams[position].idTeam) as Serializable)
             context.startActivity(intent)
         }
 

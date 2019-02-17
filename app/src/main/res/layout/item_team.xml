@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" >
     <data>
 
@@ -16,12 +17,13 @@
 
         <ImageView
                 android:id="@+id/team_badge"
-                android:layout_width="128dp"
-                android:layout_height="98dp"
+                android:layout_width="150dp"
+                android:layout_height="120dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/badge_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -31,31 +33,34 @@
         <TextView
                 android:id="@+id/team_text"
                 android:text="@string/team_text"
-                android:gravity="right"
+                android:gravity="start"
                 android:textStyle="bold"
-                android:layout_width="90dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="36dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/team_badge"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"/>
+                app:layout_constraintHorizontal_bias="0.07"/>
 
         <TextView
                 android:text="@string/stadium_text"
-                android:gravity="right"
+                android:gravity="start"
                 android:textStyle="bold"
-                android:layout_width="90dp"
-                android:layout_height="20dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/team_text"
                 app:layout_constraintStart_toStartOf="@+id/team_text"
-                app:layout_constraintTop_toBottomOf="@+id/team_text"/>
+                app:layout_constraintTop_toBottomOf="@+id/team_text"
+                app:layout_constraintHorizontal_bias="1.0"/>
 
         <TextView
                 android:id="@+id/team_name"
-                android:layout_width="146dp"
-                android:layout_height="19dp"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
@@ -63,18 +68,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/team_badge"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"/>
+                app:layout_constraintHorizontal_bias="0.934"/>
 
         <TextView
                 android:id="@+id/team_stadium"
-                android:layout_width="146dp"
-                android:layout_height="21dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@{team.strStadium}"
                 app:layout_constraintEnd_toEndOf="@+id/team_name"
                 app:layout_constraintStart_toStartOf="@+id/team_name"
                 app:layout_constraintTop_toBottomOf="@+id/team_name"
-                app:layout_constraintHorizontal_bias="1.0"/>
+                app:layout_constraintHorizontal_bias="0.0"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

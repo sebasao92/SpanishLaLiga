@@ -21,7 +21,6 @@ interface PresenterInjector {
     @Component.Builder
     interface Builder{
         fun build() : PresenterInjector
-
         fun networkModule(networkModule : NetworkModule) : Builder
         fun contextModule(contextModule : ContextModule) : Builder
 

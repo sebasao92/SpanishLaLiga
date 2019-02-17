@@ -24,7 +24,7 @@ class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {
         binding.layoutManager = LinearLayoutManager(this)
         binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 
-        presenter.onViewCreated()
+        presenter.onViewCreated(4335)
     }
 
     override fun onDestroy() {
