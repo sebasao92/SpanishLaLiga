@@ -1,7 +1,7 @@
 package com.sealor.spanishlaliga.model
 import java.io.Serializable
 
-/*
+/**
  * Receives the necessary values about just one team
  * It is serializable because it is sent from one activity to other one
  */

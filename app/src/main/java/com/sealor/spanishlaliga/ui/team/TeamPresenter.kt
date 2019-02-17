@@ -21,8 +21,10 @@ class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
     }
 
     private fun loadTeams(id : Int){
+
+        view.showLoading()
+
         try {
-            view.showLoading()
             subscription = teamApi
                 .getTeams(id)
                 .observeOn(AndroidSchedulers.mainThread())

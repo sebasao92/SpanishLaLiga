@@ -1,5 +1,6 @@
 package com.sealor.spanishlaliga.ui.team
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
@@ -14,7 +15,7 @@ import com.sealor.spanishlaliga.model.TeamsResponse
 class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {
 
     private lateinit var binding: ActivityTeamBinding
-
+    private var leagueId : Int = 0
     private val teamsAdapter = TeamAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +24,12 @@ class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {
         binding.adapter = teamsAdapter
         binding.layoutManager = LinearLayoutManager(this)
         binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        getIncomingIntent()
+        presenter.onViewCreated(leagueId)
+    }
 
-        presenter.onViewCreated(4335)
+    private fun getIncomingIntent(){
+        leagueId = intent.getIntExtra("leagueId", 4335)
     }
 
     override fun onDestroy() {

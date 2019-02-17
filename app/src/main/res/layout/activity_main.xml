@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+                android:id="@+id/team_one"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:textSize="30sp"
+                android:text="@string/league_one"
+                android:onClick="clickOnTeam1"/>
+
+        <Button
+                android:id="@+id/team_two"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:textSize="30sp"
+                android:text="@string/league_two"
+                android:onClick="clickOnTeam2"/>
+
+        <Button
+                android:id="@+id/team_three"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:textSize="30sp"
+                android:text="@string/league_three"
+                android:onClick="clickOnTeam3"/>
+
+</LinearLayout>

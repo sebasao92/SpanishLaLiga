@@ -21,8 +21,9 @@ class DetailPresenter(detailView : DetailView) : BasePresenter<DetailView>(detai
     }
 
     private fun loadEvents(idTeam : Int){
+        view.showLoading()
+
         try {
-            view.showLoading()
             subscription = teamApi
                 .getEvents(idTeam)
                 .observeOn(AndroidSchedulers.mainThread())

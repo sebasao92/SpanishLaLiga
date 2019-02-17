@@ -16,4 +16,7 @@
     <string name="website">Website</string>
     <string name="badge_description">It is the team badge</string>
     <string name="jersey_description">It is the team jersey</string>
+    <string name="league_one">SPANISH LA LIGA</string>
+    <string name="league_two">ENGLISH PREMIER</string>
+    <string name="league_three">FRENCH LIGUE 1</string>
 </resources>
