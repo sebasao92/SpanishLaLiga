@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">SpanishLaLiga</string>
-    <string name="splash_text">SpanishLaLiga</string>
+    <string name="app_name">Leagues</string>
+    <string name="splash_text">Leagues</string>
     <string name="team_text">Team Name:</string>
     <string name="stadium_text">Stadium:</string>
     <string name="unknown_error">An unknown error occurred.</string>

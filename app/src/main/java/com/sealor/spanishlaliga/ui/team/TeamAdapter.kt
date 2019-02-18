@@ -20,7 +20,7 @@ class TeamAdapter(private val context: Context) : RecyclerView.Adapter<TeamAdapt
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType : Int): TeamViewHolder {
         val layoutInflater = LayoutInflater.from(context)
-        val binding: ItemTeamBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_team, parent, false)
+        val binding : ItemTeamBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_team, parent, false)
         return TeamViewHolder(binding)
     }
 

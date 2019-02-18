@@ -8,12 +8,12 @@
                 name="team"
                 type="com.sealor.spanishlaliga.model.Team" />
 
-        <variable name="event"
-                  type="com.sealor.spanishlaliga.model.Event"/>
-
         <variable
                 name="progressVisibility"
                 type="Integer" />
+
+        <variable name="eventsText"
+                  type="String"/>
 
     </data>
 
@@ -36,7 +36,7 @@
                     android:id="@+id/progress_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="@{safeUnbox(progressVisibility)}"
                     app:layout_constraintBottom_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +83,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{team.strTeam}"
                     android:id="@+id/team_name_detail"/>
 
             <TextView
@@ -95,6 +96,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{team.strDescriptionEN}"
                     android:id="@+id/team_description_detail"/>
 
             <TextView
@@ -107,6 +109,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{team.intFormedYear}"
                     android:id="@+id/team_year_detail"/>
 
             <TextView
@@ -120,6 +123,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{eventsText}"
                     android:id="@+id/team_events_detail"/>
 
             <LinearLayout
