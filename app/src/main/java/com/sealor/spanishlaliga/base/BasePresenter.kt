@@ -7,7 +7,10 @@ import com.sealor.spanishlaliga.injection.module.NetworkModule
 import com.sealor.spanishlaliga.ui.detail.DetailPresenter
 import com.sealor.spanishlaliga.ui.team.TeamPresenter
 
-
+/**
+ * Base presenter that any presenter must extends.
+ * Provides initial injection with Dagger
+ */
 abstract class BasePresenter<out V : BaseView>(protected val view : V) {
 
     open fun onViewCreated(id : Int){}

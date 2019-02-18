@@ -9,8 +9,14 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
+/**
+ * The Presenter for presenting team details
+ */
 class DetailPresenter(detailView : DetailView) : BasePresenter<DetailView>(detailView) {
 
+    /**
+     * API Caller instance
+     */
     @Inject
     lateinit var teamApi : TeamApi
 
@@ -20,6 +26,9 @@ class DetailPresenter(detailView : DetailView) : BasePresenter<DetailView>(detai
         loadEvents(id)
     }
 
+    /**
+     * Loads the next five events by team
+     */
     private fun loadEvents(idTeam : Int){
         view.showLoading()
 

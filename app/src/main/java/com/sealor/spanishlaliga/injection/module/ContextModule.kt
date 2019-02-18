@@ -6,6 +6,10 @@ import com.sealor.spanishlaliga.base.BaseView
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Module that provides all required dependecies about Context
+ */
+
 @Module
 @Suppress("unused")
 object ContextModule {

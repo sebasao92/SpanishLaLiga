@@ -8,6 +8,9 @@ import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.ui.team.TeamActivity
 
+/**
+ * Activity for showing only three Leagues
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

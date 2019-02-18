@@ -10,10 +10,17 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Module that provides all required dependencies about network (API Caller)
+ */
+
 @Module
 @Suppress("unused")
 object NetworkModule {
 
+    /**
+     * Provides the API Caller
+     */
     @Provides
     @Reusable
     @JvmStatic
@@ -21,6 +28,9 @@ object NetworkModule {
         return retrofit.create(TeamApi::class.java)
     }
 
+    /**
+     * Provides the Retrofit object
+     */
     @Provides
     @Reusable
     @JvmStatic

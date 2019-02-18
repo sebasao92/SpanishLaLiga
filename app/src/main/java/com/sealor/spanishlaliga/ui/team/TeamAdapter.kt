@@ -14,8 +14,14 @@ import com.sealor.spanishlaliga.model.Team
 import com.sealor.spanishlaliga.ui.detail.DetailActivity
 import com.squareup.picasso.Picasso
 
+/**
+ * Adapter for the list of teams
+ */
 class TeamAdapter(private val context: Context) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
 
+    /**
+     * The list of Teams
+     */
     private var teams: List<Team> = listOf()
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType : Int): TeamViewHolder {

@@ -4,9 +4,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.base.BaseActivity
@@ -15,11 +13,24 @@ import com.sealor.spanishlaliga.model.EventsResponse
 import com.sealor.spanishlaliga.model.Team
 import com.sealor.spanishlaliga.utils.UrlFixer
 
-@Suppress("unused")
+/**
+ * Activity for showing team details
+ */
 class DetailActivity : BaseActivity<DetailPresenter>(), DetailView {
 
+    /**
+     * Related team
+     */
     private lateinit var team : Team
+
+    /**
+     * DataBinding instance
+     */
     private lateinit var binding : TeamDetailsBinding
+
+    /**
+     * Adapter for team details
+     */
     private val detailAdapter = DetailAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,7 +1,7 @@
 package com.sealor.spanishlaliga.utils
 
 /**
- * Complete incomplete string URLs
+ * Completes incomplete string URLs
  */
 class UrlFixer {
 

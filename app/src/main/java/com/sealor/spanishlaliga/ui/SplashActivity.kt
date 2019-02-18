@@ -7,6 +7,9 @@ import android.os.Handler
 import com.sealor.spanishlaliga.R
 import com.sealor.spanishlaliga.utils.SPLASH_DELAY
 
+/**
+ * Activity for controlling splash View
+ */
 class SplashActivity : AppCompatActivity() {
 
     private var delayHandler: Handler? = null
@@ -37,7 +40,6 @@ class SplashActivity : AppCompatActivity() {
         if (delayHandler != null) {
             delayHandler!!.removeCallbacks(mRunnable)
         }
-
         super.onDestroy()
     }
 

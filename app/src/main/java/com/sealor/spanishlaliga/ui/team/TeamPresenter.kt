@@ -9,8 +9,14 @@ import com.sealor.spanishlaliga.base.BasePresenter
 import com.sealor.spanishlaliga.network.TeamApi
 import javax.inject.Inject
 
+/**
+ * The Presenter for presenting the Team View
+ */
 class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
 
+    /**
+     * API Caller instance
+     */
     @Inject
     lateinit var teamApi : TeamApi
 
@@ -20,6 +26,9 @@ class TeamPresenter(teamView : TeamView) : BasePresenter<TeamView>(teamView) {
         loadTeams(id)
     }
 
+    /**
+     * Loads all the teams retrieved from the API call
+     */
     private fun loadTeams(id : Int){
 
         view.showLoading()

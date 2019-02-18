@@ -1,6 +1,5 @@
 package com.sealor.spanishlaliga.ui.team
 
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
@@ -12,10 +11,24 @@ import com.sealor.spanishlaliga.base.BaseActivity
 import com.sealor.spanishlaliga.databinding.ActivityTeamBinding
 import com.sealor.spanishlaliga.model.TeamsResponse
 
+/**
+ * Activity for displaying the list of Teams
+ */
 class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {
 
+    /**
+     * Databinding Instance
+     */
     private lateinit var binding: ActivityTeamBinding
+
+    /**
+     * Id for searching teams
+     */
     private var leagueId : Int = 0
+
+    /**
+     * Adapter for the list of teams
+     */
     private val teamsAdapter = TeamAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +59,7 @@ class TeamActivity : BaseActivity<TeamPresenter>(), TeamView {
     }
 
     override fun showLoading() {
-        binding.progressVisibility = View.GONE
+        binding.progressVisibility = View.VISIBLE
     }
 
     override fun hideLoading() {

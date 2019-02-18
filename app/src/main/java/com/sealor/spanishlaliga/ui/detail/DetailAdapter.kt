@@ -8,10 +8,24 @@ import com.sealor.spanishlaliga.model.Event
 import com.sealor.spanishlaliga.model.Team
 import com.squareup.picasso.Picasso
 
+/**
+ * Adapter for team details
+ */
 class DetailAdapter {
 
+    /**
+     * List of events of the Team
+     */
     private var events : List<Event> = listOf()
+
+    /**
+     * Databinding instance
+     */
     private lateinit var binding : TeamDetailsBinding
+
+    /**
+     * Related team
+     */
     private lateinit var team : Team
 
     fun updateEvents(events : List<Event>){
@@ -25,12 +39,13 @@ class DetailAdapter {
 
     fun setActivityValues(){
         binding.team = team
-        setEvents()
         setBadgeAndJersey()
+        setEvents()
         setSocialMedia()
+        binding.executePendingBindings()
     }
 
-    fun setEvents(){
+    private fun setEvents(){
         var eventsString = ""
         for(event in events)
             eventsString = eventsString.plus(event.strEvent.plus(" --- ").plus(event.dateEvent).plus('\n'))

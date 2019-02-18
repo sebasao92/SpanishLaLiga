@@ -4,6 +4,9 @@ import android.support.annotation.StringRes
 import com.sealor.spanishlaliga.base.BaseView
 import com.sealor.spanishlaliga.model.EventsResponse
 
+/**
+ * Instance that provides methods for displaying team details
+ */
 interface DetailView : BaseView {
 
     fun hideLoading()
